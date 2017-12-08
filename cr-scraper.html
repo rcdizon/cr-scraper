@@ -1,0 +1,58 @@
+<!--
+Created in 2017 by Richard Dizon, University of Virginia c/o 2018.
+Check out my photos at 'http://dizon.photos' while you're at it!
+If you're a photographer in the Seattle area, contact me, I'll be
+moving there in fall of 2018 and I'm looking for a publication.
+-->
+
+<button onclick="generateCode();">Click for code</button>
+<p id="output"></p>
+
+<script>
+    function generateCode() {
+        var tr = document.getElementsByTagName("tr");
+
+        var begin;
+        if (document.getElementsByTagName("u")[0]) begin = 2;
+        else begin = 1;
+
+        var team1name = document.getElementsByTagName("b")[begin].innerHTML;
+        var team2name = document.getElementsByTagName("b")[begin+1].innerHTML;
+
+        var secondTeamStart;
+        var result = "";
+
+        for(var i = 3; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName("th")[0]) {
+                secondTeamStart = i;
+                break;
+            } else if (tr[i].getElementsByTagName("td")[1].getElementsByTagName("input")[0].value == "") {
+                continue;
+            } else {
+                var code = tr[i].getElementsByTagName("td")[1].getElementsByTagName("input")[0].value;
+                var number = tr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;
+                var position = tr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;
+                var playerName = tr[i].getElementsByTagName("td")[4].getElementsByTagName("input")[0].value;
+                var line = code + "&emsp;" + team1name + " " + position + " " + playerName + " (" + number + ")<br>";
+                result += line;
+            }
+        }
+
+        result += "<br>";
+
+        for(var i = secondTeamStart+1; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName("td")[1].getElementsByTagName("input")[0].value == "") {
+                continue;
+            } else {
+                var code = tr[i].getElementsByTagName("td")[1].getElementsByTagName("input")[0].value;
+                var number = tr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;
+                var position = tr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;
+                var playerName = tr[i].getElementsByTagName("td")[4].getElementsByTagName("input")[0].value;
+                var line = code + "&emsp;" + team2name + " " + position + " " + playerName + " (" + number + ")<br>";
+                result += line;
+            }
+        }
+
+        document.getElementById("output").innerHTML = result;
+    }
+</script>
