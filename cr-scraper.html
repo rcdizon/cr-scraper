@@ -30,10 +30,12 @@ moving there in fall of 2018 and I'm looking for a publication.
                 continue;
             } else {
                 var code = tr[i].getElementsByTagName("td")[1].getElementsByTagName("input")[0].value;
-                var number = tr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;
+                var num = tr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;
                 var position = tr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;
                 var playerName = tr[i].getElementsByTagName("td")[4].getElementsByTagName("input")[0].value;
-                var line = code + "&emsp;" + team1name + " " + position + " " + playerName + " (" + number + ")<br>";
+                var line;
+                if (num=="hc") line = code + "\t" + team1name + " " + position + " " + playerName + "<br>";
+                else line = code + "\t" + team1name + " " + position + " " + playerName + " (" + num + ")<br>";
                 result += line;
             }
         }
@@ -45,10 +47,12 @@ moving there in fall of 2018 and I'm looking for a publication.
                 continue;
             } else {
                 var code = tr[i].getElementsByTagName("td")[1].getElementsByTagName("input")[0].value;
-                var number = tr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;
+                var num = tr[i].getElementsByTagName("td")[2].getElementsByTagName("input")[0].value;
                 var position = tr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;
                 var playerName = tr[i].getElementsByTagName("td")[4].getElementsByTagName("input")[0].value;
-                var line = code + "&emsp;" + team2name + " " + position + " " + playerName + " (" + number + ")<br>";
+                var line;
+                if (num=="hc") line = code + "\t" + team2name + " " + position + " " + playerName + "<br>";
+                else line = code + "\t" + team2name + " " + position + " " + playerName + " (" + num + ")<br>";
                 result += line;
             }
         }
