@@ -34,8 +34,10 @@ moving there in fall of 2018 and I'm looking for a publication.
                 var position = tr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;
                 var playerName = tr[i].getElementsByTagName("td")[4].getElementsByTagName("input")[0].value;
                 var line;
-                if (num=="hc") line = code + "\t" + team1name + " " + position + " " + playerName + "<br>";
-                else line = code + "\t" + team1name + " " + position + " " + playerName + " (" + num + ")<br>";
+                if (num=="hc") line = code + "\t" + team1name + " " + position + " " + playerName + "\t Coach" +
+                        playerName + "<br>";
+                else line = code + "\t" + playerName + " (" + num + ") of the " + team1name + "\t" + playerName +
+                        " (" + num + ")\t" + playerName + "\t" + position + "<br>";
                 result += line;
             }
         }
@@ -51,8 +53,10 @@ moving there in fall of 2018 and I'm looking for a publication.
                 var position = tr[i].getElementsByTagName("td")[3].getElementsByTagName("input")[0].value;
                 var playerName = tr[i].getElementsByTagName("td")[4].getElementsByTagName("input")[0].value;
                 var line;
-                if (num=="hc") line = code + "\t" + team2name + " " + position + " " + playerName + "<br>";
-                else line = code + "\t" + team2name + " " + position + " " + playerName + " (" + num + ")<br>";
+                if (num=="hc") line = code + "\t" + team2name + " " + position + " " + playerName + "\t Coach" +
+                        playerName + "<br>";
+                else line = code + "\t" + playerName + " (" + num + ") of the " + team2name + "\t" + playerName +
+                        " (" + num + ")\t" + playerName + "\t" + position + "<br>";
                 result += line;
             }
         }
